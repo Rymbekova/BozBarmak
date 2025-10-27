@@ -45,13 +45,13 @@ y_pct <- round(var_exp[2], 1)
 dat_pca <- smartpca.evec[Class == "PCA"]
 dat_proj <- smartpca.evec[Class == "Projected"]
 
-# --- 6) Central 95% trimming on the PCA data only ---
+# Step 6: Central 95% trimming on the PCA data only 
 if (nrow(dat_pca) > 0) {
   xq <- quantile(dat_pca$PC1, c(0.025, 0.9), na.rm = TRUE)
   yq <- quantile(dat_pca$PC2, c(0.025, 0.9), na.rm = TRUE)
   dat_pca <- dat_pca[PC1 >= xq[1] & PC1 <= xq[2] & PC2 >= yq[1] & PC2 <= yq[2]]
 }
-# --- 7) Label tables from trimmed data ---
+# Step 7: Label tables from trimmed data 
 tm <- function(x) mean(x, trim = 0.1, na.rm = TRUE)
 lab_modern <- dat_pca[, .(PC1 = tm(PC1), PC2 = tm(PC2)), by = Group]
 lab_proj <- dat_proj[, .(PC1 = tm(PC1), PC2 = tm(PC2)), by = Group]
@@ -89,7 +89,7 @@ p
 
 MODERN_GROUPS_TO_LABEL <- c("Central_Eurasian_populations", "Caucasus_and_Iran_populations", "South_Asian_populations", "Siberian_populations", "European_populations", "East_Asian_populations")
 
-# --- Step 8: Plotting ---
+# Step 9: Plotting 
 p <- ggplot() +
   # Plot PCA individuals (moderns) - Uniform gray points
   geom_point(data = dat_pca,
