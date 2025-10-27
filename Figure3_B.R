@@ -14,7 +14,7 @@ ancestry_values <- data.frame(
   )             
 
 
-# 1. Pivot to long format
+# 1. Long format
 ancestry_long <- ancestry_values %>%
   pivot_longer(
     cols = c(Ancestry1, Ancestry2, Proportion1, Proportion2, Error1, Error2),
