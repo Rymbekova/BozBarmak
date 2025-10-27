@@ -12,8 +12,7 @@ e2
 # Calculate the percentage of variance explained
 var <- (e$values/sum(e$values))*100
 
-# Generate random shapes for individuals, larger than 25
-set.seed(23)  # Optional: for reproducibility
+set.seed(23)  
 num_individuals <- length(unique(ID$IND))
 available_shapes <- 1:25  # The range of available shapes in R
 random_pch <- sample(available_shapes, num_individuals, replace=TRUE)  # Sample with replacement for larger numbers
