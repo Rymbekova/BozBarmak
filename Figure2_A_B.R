@@ -81,7 +81,9 @@ range_colors <- c("First Degree Range" = "#E0FFE0", # Light Green
                   "Second Degree Range" = "#FFE0E0", # Light Red/Pink
                   "Third Degree Range" = "#FFFACD")  # Light Yellow
 
-# --- PART 3: Create Multi-Panel PDF ---
+#-------------------------------------------------------------------------------------------------
+
+# Create Multi-Panel PDF 
 pdf("/home/rymbekovaa95/pcangsd/PCA_IBD_Eurasian_SGDP_Kyrgyz_Botai.pdf", width = 30, height = 20) # Increased width for two plots
 
 # Set up the layout: 1 row, 2 columns.
@@ -90,7 +92,7 @@ pdf("/home/rymbekovaa95/pcangsd/PCA_IBD_Eurasian_SGDP_Kyrgyz_Botai.pdf", width =
 layout(matrix(c(1, 2), nrow = 1, ncol = 2, byrow = TRUE), widths = c(0.6, 0.4))
 base_cex <- 2.0
 
-# --- Plot 1: PCA Plot ---
+# PCA Plot
 # Reset margins for the first plot (PCA) as they were changed by par() earlier
 # c(bottom, left, top, right)
 par(mar=c(6, 7, 4, 2)) # Adjusted for PCA specific needs
@@ -107,7 +109,7 @@ legend("topright", legend=levels(as.factor(ID$POP)), col=1:length(levels(as.fact
        pch=19, title.cex = base_cex * 1.3, cex = base_cex * 1.3, pt.cex=base_cex * 1.3, pt.lwd = 3, title="Population")
 
 
-# --- Plot 2: IBD Bar Plot ---
+# IBD Bar Plot
 par(mar=c(6, 18, 4, 2)) # Increased left margin for labels significantly
 
 # Determine y-coordinates for bars
