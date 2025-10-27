@@ -62,7 +62,7 @@ y_coords <- setNames(seq_along(individual_levels) * 1.5, individual_levels)
 ancestry_long$y_center <- y_coords[as.character(ancestry_long$Individual)]
 
 
-# --- 4. Color palette for all 6 ancestries ---
+# 4. Color palette for all 6 ancestries 
 colors_map <- c(
   "Bulgarian_LIA"    = "#E69F00",
   "Kazakh_EIA" = "#56B4E9",
@@ -71,14 +71,14 @@ colors_map <- c(
   "WesternSiberian_IA" = "#CC79A7"
 )
 
-# --- 5. Generate the Base R Plot using rect() ---
+# 5. Generate the Base R Plot using rect() 
 # Initialize PNG device with good resolution (1200x700 pixels)
 png("qpAdm_BB_Ancestry.png", width = 1200, height = 700, res = 100) 
 
 # Set margins: Left for labels (8), Right for legend (8)
 par(mar = c(5, 5.5, 4, 13) + 0.1)
 
-# 3a. Set up the plot area
+# Set up the plot area
 plot(
   NA, NA,
   xlim = c(0, 1),
@@ -90,7 +90,7 @@ plot(
   bty = "n"
 )
 
-# 3b. Draw the segments (thick bars)
+# Draw the segments (thick bars)
 bar_width = 1.2 # Increased bar thickness
 with(ancestry_long, {
   rect(
@@ -103,7 +103,7 @@ with(ancestry_long, {
   )
 })
 
-# 3c. Draw the Error Bars (using the top and Error values)
+# Draw the Error Bars (using the top and Error values)
 with(ancestry_long, {
   # Error bars are drawn from the 'top' position down by 'Error'
   arrows(
@@ -119,7 +119,7 @@ with(ancestry_long, {
   )
 })
 
-# 3d. Add individual labels (Y-axis)
+# Add individual labels (Y-axis)
 axis(
   side = 2,
   at = y_coords,
@@ -129,7 +129,7 @@ axis(
   cex.axis = 1.2 # Larger text size
 )
 
-# 3e. Add Legend (Placed in the right margin)
+# Add Legend (Placed in the right margin)
 legend(
   x = 0.99,
   y = max(ancestry_long$y_center) + 0.75,
