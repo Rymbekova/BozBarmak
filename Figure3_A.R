@@ -168,7 +168,8 @@ ggplot() +
        y = "f3 statistic",
        title = "BozBarmak f3: Population vs Individual") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-#===============================================================================
+
+#---------------------------------------------------------------------
 
 f3_pop_plot_dot <- f3_pop_plot %>%
   filter(grepl("\\.", Population_B))
